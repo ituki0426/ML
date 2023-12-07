@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 # .envファイルの内容を読み込見込む
 load_dotenv()
 
+QUERY = "A white pair of wireless earbuds in a charging case, with the case partially enclosed in a small black leather pouch with a snap button closure. The case has a text that reads 'shuichi' on it."
+
 # os.environを用いて環境変数を表示させます
 API_URL = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L12-v2"
 headers = {"Authorization": "Bearer " + os.environ['HUGGIN_FACE_KEY']}
@@ -22,8 +24,6 @@ def query(payload):
     response = requests.post(API_URL, headers=headers, json=payload)
     return response.json()
 
-
-QUERY = "A red iPhone 15 with a broken screen"
 output = query({
     "inputs": {
         "source_sentence": QUERY,
