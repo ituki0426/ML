@@ -4,7 +4,7 @@ import os
 import json
 
 # 入力用の文章をロード
-with open('/Users/ituki/ML/docs.json') as f:
+with open('./docs.json') as f:
     docs = json.load(f)
 
 index = []
